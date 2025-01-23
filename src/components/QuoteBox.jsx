@@ -20,6 +20,7 @@ class QuoteBox extends React.Component {
 
   componentWillUnmount() {
     // Cleans up the debounced function on unmount
+    console.log("componentWillUnmount called");
     this.debouncedFetchQuote.cancel();
   }
 
@@ -37,6 +38,7 @@ class QuoteBox extends React.Component {
   render() {
     // Destructuring props
     const { quote, error } = this.props;
+    console.log("Rendering QuoteBox with props:", this.props);
 
     return (
       <div id="quote-box">
@@ -44,14 +46,14 @@ class QuoteBox extends React.Component {
           <p>Error fetching quote {error}</p>
         ) : quote ? (
           <div>
-            <p id="text">{quote?.content}</p>
-            <p id="author">- {quote?.originator.name}</p>
+            <p id="text">{quote?.quote?.content}</p>
+            <p id="author">{quote?.quote?.originator?.name}</p>
             <button id="new-quote" onClick={this.handleNewQuote}>
               New Quote
             </button>
             <a
               id="tweet-quote"
-              href={`https://twitter.com/intent/tweet?text=${quote?.content} - ${quote?.originator.name}`}
+              href={`https://twitter.com/intent/tweet?text=${quote?.quote?.content} - ${quote?.quote?.originator?.name}`}
               target="_blank"
               rel="noopener noreferrer"
             >

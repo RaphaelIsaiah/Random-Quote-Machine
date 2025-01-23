@@ -16,11 +16,11 @@ export const fetchQuote = () => {
     try {
       const response = await fetch(url, options);
 
-      console.log(response);
+      // console.log(response);
 
       const data = await response.json();
 
-      console.log(data);
+      console.log("Fetched quote data:", data);
 
       dispatch({ type: SET_QUOTE, payload: data });
     } catch (error) {
