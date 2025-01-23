@@ -1,4 +1,5 @@
 export const SET_QUOTE = "SET_QUOTE";
+export const FETCH_QUOTE_ERROR = "FETCH_QUOTE_ERROR";
 
 export const fetchQuote = () => {
   return async (dispatch) => {
@@ -23,6 +24,7 @@ export const fetchQuote = () => {
 
       dispatch({ type: SET_QUOTE, payload: data });
     } catch (error) {
+      dispatch({ type: FETCH_QUOTE_ERROR, error: error.message });
       console.error("Error:", error);
     }
   };
