@@ -13,14 +13,14 @@ class QuoteBox extends React.Component {
   }
 
   componentDidMount() {
-    console.log("componentDidMount called!!!");
+    // console.log("componentDidMount called!!!");
     // Fetches a quote on mount
     this.debouncedFetchQuote();
   }
 
   componentWillUnmount() {
     // Cleans up the debounced function on unmount
-    console.log("componentWillUnmount called");
+    // console.log("componentWillUnmount called");
     this.debouncedFetchQuote.cancel();
   }
 
@@ -32,13 +32,13 @@ class QuoteBox extends React.Component {
   handleNewQuote() {
     this.debouncedFetchQuote();
     // Logs the current quote
-    console.log(this.props.quote);
+    // console.log(this.props.quote);
   }
 
   render() {
     // Destructuring props
     const { quote, error } = this.props;
-    console.log("Rendering QuoteBox with props:", this.props);
+    // console.log("Rendering QuoteBox with props:", this.props);
 
     return (
       <div className="container-fluid d-flex justify-content-center align-items-center vh-100">

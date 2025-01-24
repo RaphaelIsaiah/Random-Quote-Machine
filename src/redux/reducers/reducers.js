@@ -8,11 +8,11 @@ const initialState = {
 const quoteReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_QUOTE:
-      console.log("Setting quote in state:", action.payload);
+      // console.log("Setting quote in state:", action.payload);
       // Reset error on successful fetch
       return { ...state, quote: action.payload, error: null };
     case FETCH_QUOTE_ERROR:
-      console.log("Setting error in state:", action.error);
+      // console.log("Setting error in state:", action.error);
       // Update error state
       return { ...state, error: action.error };
     default:

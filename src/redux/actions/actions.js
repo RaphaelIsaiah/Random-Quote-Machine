@@ -20,7 +20,7 @@ export const fetchQuote = () => {
 
       const data = await response.json();
 
-      console.log("Fetched quote data:", data);
+      // console.log("Fetched quote data:", data);
 
       dispatch({ type: SET_QUOTE, payload: data });
     } catch (error) {
