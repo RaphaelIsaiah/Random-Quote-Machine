@@ -1,4 +1,4 @@
-import { SET_QUOTE, FETCH_QUOTE_ERROR } from "../actions/actions";
+import { SET_QUOTE, FETCH_QUOTE_ERROR } from "../actions/actionTypes";
 
 const initialState = {
   quote: null,

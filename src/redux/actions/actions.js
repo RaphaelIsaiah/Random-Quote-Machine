@@ -1,5 +1,4 @@
-export const SET_QUOTE = "SET_QUOTE";
-export const FETCH_QUOTE_ERROR = "FETCH_QUOTE_ERROR";
+import { setQuote, fetchQuoteError } from "./actionCreators";
 
 export const fetchQuote = () => {
   return async (dispatch) => {
@@ -22,9 +21,9 @@ export const fetchQuote = () => {
 
       // console.log("Fetched quote data:", data);
 
-      dispatch({ type: SET_QUOTE, payload: data });
+      dispatch(setQuote(data));
     } catch (error) {
-      dispatch({ type: FETCH_QUOTE_ERROR, error: error.message });
+      dispatch(fetchQuoteError(error.message));
       console.error("Error:", error);
     }
   };
