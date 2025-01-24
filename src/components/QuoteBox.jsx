@@ -61,7 +61,7 @@ class QuoteBox extends React.Component {
                 </p>
                 <div className="d-flex flex-wrap justify-content-center gap-4 mx-auto w-100">
                   <button
-                    className="btn btn-primary "
+                    className="btn primary "
                     id="new-quote"
                     onClick={this.handleNewQuote}
                   >
@@ -69,7 +69,7 @@ class QuoteBox extends React.Component {
                   </button>
                   <a
                     id="tweet-quote"
-                    className="btn btn-secondary "
+                    className="btn secondary "
                     href={`https://twitter.com/intent/tweet?text=${quote?.quote?.content} - ${quote?.quote?.originator?.name}`}
                     target="_blank"
                     rel="noopener noreferrer"
