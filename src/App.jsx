@@ -6,7 +6,7 @@ import store from "./redux/store/store";
 
 function App() {
   return (
-    <Provider className="App" store={store}>
+    <Provider className="App container-fluid" store={store}>
       <QuoteBox />
     </Provider>
   );

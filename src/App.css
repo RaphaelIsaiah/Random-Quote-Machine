@@ -1,3 +1,11 @@
+:root {
+  /* Colors */
+  --color-1: #e5ddc8;
+  --color-2: #01949a;
+  --color-3: #004369;
+  --color-4: #db1f48;
+}
+
 .App {
   display: flex;
   justify-content: center;
@@ -6,5 +14,66 @@
 }
 
 body {
-  background-color: #d3b6b6;
+  background-color: var(--color-1);
+  background: linear-gradient(-60deg, var(--color-4) 20%, var(--color-2) 100%);
+  text-align: center;
+  font-family: "Playfair Display", serif;
+}
+
+/* styles.css */
+#quote-box {
+  background: var(--color-1);
+  max-width: 900px;
+  max-height: 650px;
+  overflow-y: auto;
+  background-color: var(--color-2);
+  background: linear-gradient(60deg, var(--color-4) 20%, var(--color-2) 100%);
+  box-shadow: 0px 6px 10px var(--color-3);
+}
+
+.card {
+  box-shadow: 0px 4px 8px var(--color-4);
+  background-color: var(--color-1);
+}
+
+#text {
+  font-size: clamp(1.5rem, 4vw, 2.3rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--color-3);
+}
+
+.fa-solid {
+  color: var(--color-4);
+  font-size: clamp(2rem, 4vw, 2.3rem);
+}
+
+#author {
+  font-size: clamp(1.3rem, 4vw, 1.5rem);
+  font-weight: 600;
+  font-style: italic;
+  color: var(--color-3);
+}
+
+.btn {
+  font-size: clamp(0.8rem, 4vw, 1.2rem);
+  border: none;
+  color: var(--color-1);
+  font-weight: 600;
+}
+
+.btn-primary {
+  background-color: var(--color-4);
+  box-shadow: 0px 4px 8px var(--color-3);
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  background-color: var(--color-1);
+  color: var(--color-3);
+}
+
+.btn-secondary {
+  background-color: var(--color-3);
+  box-shadow: 0px 4px 8px var(--color-3);
 }
