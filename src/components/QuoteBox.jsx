@@ -39,12 +39,18 @@ const QuoteBox = () => {
         ) : quote ? (
           <div className="card">
             <div className="card-body p-4">
-              <p id="text" className="card-text">
+              <p
+                id="text"
+                className="card-text animate__animated animate__fadeIn"
+              >
                 <i className="fa-solid fa-quote-left mx-3"></i>
                 {quote?.content}
                 <i className="fa-solid fa-quote-right mx-3"></i>
               </p>
-              <p id="author" className="card-subtitle mb-2 mb-4 text-end">
+              <p
+                id="author"
+                className="card-subtitle mb-2 mb-4 text-end animate__animated animate__fadeIn"
+              >
                 - {quote?.originator?.name}
               </p>
               <div className="d-flex flex-wrap justify-content-center gap-4 mx-auto w-100">
