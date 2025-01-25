@@ -12,7 +12,7 @@ const QuoteBox = () => {
   const [animate, setAnimate] = useState(false);
 
   const debouncedFetch = useRef(
-    debounce(() => dispatch(fetchQuote()), 500)
+    debounce(() => dispatch(fetchQuote()), 300)
   ).current;
 
   const debouncedFetchQuote = useCallback(() => {
@@ -29,13 +29,15 @@ const QuoteBox = () => {
 
   useEffect(() => {
     if (quote) {
-      setAnimate(false); // Reset animation
-      setTimeout(() => setAnimate(true), 0); // Trigger animation
+      setTimeout(() => setAnimate(true), 0); // Trigger animation after quote updates
     }
   }, [quote]);
 
   const handleNewQuote = () => {
-    debouncedFetchQuote();
+    setAnimate(false); // Reset animation immediately
+    setTimeout(() => {
+      debouncedFetchQuote(); // Fetch new quote
+    }, 100); // Wait for animation reset
   };
 
   return (
