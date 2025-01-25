@@ -12,7 +12,7 @@ const QuoteBox = () => {
   const [animate, setAnimate] = useState(false);
 
   const debouncedFetch = useRef(
-    debounce(() => dispatch(fetchQuote()), 1000)
+    debounce(() => dispatch(fetchQuote()), 500)
   ).current;
 
   const debouncedFetchQuote = useCallback(() => {
