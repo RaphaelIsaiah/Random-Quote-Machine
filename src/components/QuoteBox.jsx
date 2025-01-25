@@ -1,4 +1,4 @@
-import { useCallback, useRef, useEffect } from "react";
+import { useCallback, useRef, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchQuote } from "../redux/actions/actions";
 import { debounce } from "lodash";
@@ -9,8 +9,10 @@ const QuoteBox = () => {
   const quote = useSelector((state) => state.quote.quote);
   const error = useSelector((state) => state.quote.error);
 
+  const [animate, setAnimate] = useState(false);
+
   const debouncedFetch = useRef(
-    debounce(() => dispatch(fetchQuote()), 500)
+    debounce(() => dispatch(fetchQuote()), 1000)
   ).current;
 
   const debouncedFetchQuote = useCallback(() => {
@@ -24,6 +26,13 @@ const QuoteBox = () => {
       debouncedFetch.cancel();
     };
   }, [debouncedFetchQuote, debouncedFetch]);
+
+  useEffect(() => {
+    if (quote) {
+      setAnimate(false); // Reset animation
+      setTimeout(() => setAnimate(true), 0); // Trigger animation
+    }
+  }, [quote]);
 
   const handleNewQuote = () => {
     debouncedFetchQuote();
@@ -41,7 +50,9 @@ const QuoteBox = () => {
             <div className="card-body p-4">
               <p
                 id="text"
-                className="card-text animate__animated animate__fadeIn"
+                className={`card-text ${
+                  animate ? "animate__animated animate__fadeIn" : ""
+                }`}
               >
                 <i className="fa-solid fa-quote-left mx-3"></i>
                 {quote?.content}
@@ -49,7 +60,9 @@ const QuoteBox = () => {
               </p>
               <p
                 id="author"
-                className="card-subtitle mb-2 mb-4 text-end animate__animated animate__fadeIn"
+                className={`card-subtitle mb-2 mb-4 text-end ${
+                  animate ? "animate__animated animate__fadeIn" : ""
+                }`}
               >
                 - {quote?.originator?.name}
               </p>

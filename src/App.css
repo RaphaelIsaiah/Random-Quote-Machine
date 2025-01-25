@@ -20,7 +20,6 @@ body {
   font-family: "Playfair Display", serif;
 }
 
-/* styles.css */
 #quote-box {
   background: var(--color-1);
   max-width: 900px;
@@ -76,4 +75,8 @@ body {
 .secondary {
   background-color: var(--color-3);
   box-shadow: 0px 4px 8px var(--color-3);
+}
+
+.spinner-border {
+  border-image: linear-gradient(to right, var(--color-1), var(--color-3)) 1;
 }
