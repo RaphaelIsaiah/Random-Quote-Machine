@@ -88,6 +88,13 @@ body {
   color: var(--color-1);
 }
 
+.btn.primary:not(:active):not(:hover) {
+  background-color: var(--color-4);
+}
+.btn.secondary:not(:active):not(:hover) {
+  background-color: var(--color-3);
+}
+
 .spinner-border {
   border-image: linear-gradient(to right, var(--color-1), var(--color-3)) 1;
 }
