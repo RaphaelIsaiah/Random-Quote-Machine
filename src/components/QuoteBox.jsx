@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchQuote } from "../redux/actions/actions";
 import { debounce } from "lodash";
 import PropTypes from "prop-types";
+import NewQuoteBtn from "./buttons/NewQuoteBtn";
+// import TwitterBtn from "./buttons/TwitterBtn";
 
 const QuoteBox = () => {
   const dispatch = useDispatch();
@@ -69,13 +71,14 @@ const QuoteBox = () => {
                 - {quote?.originator?.name}
               </p>
               <div className="d-flex flex-wrap justify-content-center gap-4 mx-auto w-100">
-                <button
+                {/* <button
                   className="btn primary"
                   id="new-quote"
                   onClick={handleNewQuote}
                 >
                   New Quote
-                </button>
+                </button> */}
+                <NewQuoteBtn onClick={handleNewQuote} />
                 <a
                   id="tweet-quote"
                   className="btn secondary"
@@ -85,6 +88,9 @@ const QuoteBox = () => {
                 >
                   <i className="fa-brands fa-x-twitter"></i> Tweet
                 </a>
+                {/* <TwitterBtn
+                  url={`https://twitter.com/intent/tweet?text=${quote?.content} - ${quote?.originator?.name}`}
+                /> */}
               </div>
             </div>
           </div>
