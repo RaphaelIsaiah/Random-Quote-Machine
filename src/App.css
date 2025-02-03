@@ -59,6 +59,7 @@ body {
   border: none;
   color: var(--color-1);
   font-weight: 600;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .primary {
@@ -71,30 +72,40 @@ body {
   box-shadow: 0px 4px 8px var(--color-3);
 }
 
-.hover,
-.primary:hover,
-.secondary:hover {
+/* Hover state for buttons */
+.btn:hover {
+  background-color: var(--color-1); /* Light background on hover */
+  color: var(--color-3); /* Dark blue text on hover */
+}
+
+/* Active state for buttons */
+.btn:active {
+  background-color: var(--color-1); /* Light background when active */
+  color: var(--color-3); /* Dark blue text when active */
+}
+
+/* Remove default focus outline */
+.btn:focus {
+  outline: none;
+}
+
+/* Combination of hover and active state */
+.btn:hover:active {
   background-color: var(--color-1);
   color: var(--color-3);
 }
 
-.btn:active,
-.btn:focus,
-.btn:active:focus {
-  color: var(--color-3);
-}
-
-.btn:not(:active):not(:hover) {
-  color: var(--color-1);
-}
-
-.btn.primary:not(:active):not(:hover) {
-  background-color: var(--color-4);
-}
-.btn.secondary:not(:active):not(:hover) {
-  background-color: var(--color-3);
-}
-
 .spinner-border {
   border-image: linear-gradient(to right, var(--color-1), var(--color-3)) 1;
+}
+
+@media (hover: none) {
+  .primary:hover {
+    background-color: var(--color-4); /* Reset to default */
+    color: var(--color-1);
+  }
+  .secondary:hover {
+    background-color: var(--color-3);
+    color: var(--color-1);
+  }
 }
